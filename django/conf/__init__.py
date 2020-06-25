@@ -15,6 +15,7 @@ from pathlib import Path
 
 import django
 from django.conf import global_settings
+from django.conf.loaders import EnvLoader
 from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.core.validators import URLValidator
 from django.utils.deprecation import RemovedInDjango40Warning
@@ -270,3 +271,5 @@ class UserSettingsHolder:
 
 
 settings = LazySettings()
+
+from_env = EnvLoader()
