@@ -174,6 +174,20 @@ class URLHasAllowedHostAndSchemeTests(unittest.TestCase):
             "\n",
             "http://[2001:cdba:0000:0000:0000:0000:3257:9652/",
             "http://2001:cdba:0000:0000:0000:0000:3257:9652]/",
+            "\\\\example.com",
+            "/\\\\example.com",
+            "\t\\\\example.com",
+            "\r\\example.com",
+            "/path\\with\\backslash",
+            "/path\x00null",
+            "/path\x1fcontrol",
+            "/path\x7fdel",
+            "/path\u00a0nbsp",
+            "/path\u2028line_separator",
+            "/path\u2029paragraph_separator",
+            "/path\u3000ideographic_space",
+            " /leading-space",
+            "/path with raw space",
         )
         for bad_url in bad_urls:
             with self.subTest(url=bad_url):
